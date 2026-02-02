@@ -1,21 +1,130 @@
-# DIO - Trilha .NET - Explorando a linguagem C#
-www.dio.me
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de explorando a linguagem C#, da trilha .NET da DIO.
+# Desafio – Projeto de Hospedagem (Console/.NET 8)
 
-## Contexto
-Você foi contratado para construir um sistema de hospedagem, que será usado para realizar uma reserva em um hotel. Você precisará usar a classe Pessoa, que representa o hóspede, a classe Suíte, e a classe Reserva, que fará um relacionamento entre ambos.
+Mini‑sistema de **reservas de hospedagem** em modo console, desenvolvido em **.NET 8**.  
+O usuário pode cadastrar **suítes**, **hóspedes**, criar/atualizar **reservas**, e calcular o **valor total** com **desconto** automático para longas estadias.
 
-O seu programa deverá cálcular corretamente os valores dos métodos da classe Reserva, que precisará trazer a quantidade de hóspedes e o valor da diária, concedendo um desconto de 10% para caso a reserva seja para um período maior que 10 dias.
+> Regra de desconto: para **10 dias ou mais**, aplicar **10%** sobre o total.
 
-## Regras e validações
-1. Não deve ser possível realizar uma reserva de uma suíte com capacidade menor do que a quantidade de hóspedes. Exemplo: Se é uma suíte capaz de hospedar 2 pessoas, então ao passar 3 hóspedes deverá retornar uma exception.
-2. O método ObterQuantidadeHospedes da classe Reserva deverá retornar a quantidade total de hóspedes, enquanto que o método CalcularValorDiaria deverá retornar o valor da diária (Dias reservados x valor da diária).
-3. Caso seja feita uma reserva igual ou maior que 10 dias, deverá ser concedido um desconto de 10% no valor da diária.
+---
+
+## 🧭 Índice
+- Funções do sistema
+- Tecnologias
+- Requisitos
+- Como executar
+- Menu do sistema
+- Estrutura do projeto
+- Regras de negócio
+- Exemplos de uso
+- Como contribuir
+- Licença
+
+---
+
+## ✨ Funcionalidades
+- Cadastro de **suíte** com tipo, capacidade e valor da diária.
+- Cadastro de **hóspedes** (nome e sobrenome).
+- Criação/atualização de **reserva** informando os dias.
+- **Validação de capacidade**: a quantidade de hóspedes deve caber na suíte.
+- **Cálculo do valor** total da reserva (com desconto para ≥ 10 dias).
+- Exibição de **resumo** (suíte, hóspedes, valor).
+- Interface **interativa** por **menu no console**.
+
+---
+
+## 🛠 Tecnologias
+- **.NET 8 (SDK)**
+- **C#**
+- Console App (Top‑Level Statements)
+
+---
+
+## 💻 Requisitos
+- **.NET SDK 8.0**
+
+---
+
+## ▶️ Como executar
+Clone o repositório e rode:
+
+```bash
+dotnet restore
+dotnet run
+
+Menu do sistema
+=======================================
+      Sistema de Reservas (Console)
+=======================================
+
+[1] Cadastrar suíte
+[2] Cadastrar hóspedes
+[3] Criar/atualizar reserva
+[4] Mostrar resumo
+[5] Mostrar quantidade de hóspedes
+[6] Calcular valor da diária
+[0] Sair
 
 
-![Diagrama de classe estacionamento](diagrama_classe_hotel.png)
+Estrutura do projeto
+.
+├─ Program.cs                 # Menu interativo (console)
+├─ ConsoleUtils.cs            # Utilitários de entrada/validação
+├─ Models/
+│  ├─ Pessoa.cs               # Nome/Sobrenome
+│  ├─ Suite.cs                # Tipo, Capacidade, ValorDiaria
+│  └─ Reserva.cs              # Regras de reserva e cálculo
+└─ DesafioProjetoHospedagem.csproj
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+📐 Regras de negócio
+Cadastro de hóspedes
+
+Não permite cadastrar sem antes definir a suíte
+Não permite cadastrar lista vazia
+Não permite ultrapassar capacidade da suíte
+
+Cálculo de diária
+
+Total = Dias × Valor da diária
+Se dias ≥ 10 → 10% de desconto
+
+🧪 Exemplos de uso
+Sem desconto
+
+Suíte: diária 30,00
+Dias: 5
+Total: 150,00
+
+Com desconto
+
+Suíte: diária 30,00
+Dias: 12
+Total: 324,00
+
+
+🤝 Como contribuir
+
+Faça um fork
+Crie uma branch
+Commit
+Push
+Abra um Pull Request
+
+
+📜 Licença
+Projeto criado para fins de estudo em C# e .NET.
+EOF
+
+Isso vai criar automaticamente o arquivo pronto! ✔️
+
+---
+
+# ✅ **2. Adicionar ao Git**
+```bash
+git add README.md
+
+✅ 3. Fazer o commit
+git commit -m "docs: adiciona README.md ao projeto"Mostrar mais linhas
+
+✅ 4. Enviar para o GitHub
+git push origin main
